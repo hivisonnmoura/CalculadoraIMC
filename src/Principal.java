@@ -1,9 +1,7 @@
 
-
 public class Principal {
 	public static void main(String[] args) {
-		
-		
+
 		Paciente p1 = new Paciente(55.5, 1.60);
 		p1.diagnostico();
 
