@@ -19,7 +19,7 @@ public class Paciente {
 
 		if (imc < 16) {
 
-			System.out.println("Baixo peso muito grave");
+			System.out.println("Baixo peso muito grave ");
 
 		} else if (imc >= 16 && imc <= 16.99) {
 
