@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 
 public class Paciente {
 	private double peso;
@@ -9,46 +10,53 @@ public class Paciente {
 	}
 
 	double calcularIMC() {
-		double imc = this.peso / Math.pow(this.altura, 2);
-		return imc;
+		
+		return  this.peso / Math.pow(this.altura, 2);
+		
 	}
 
-	void diagnostico() {
-		double imc = calcularIMC();
-		System.out.println("Seu IMC É :" + imc);
+	String diagnostico() {
+		
+		
+		DecimalFormat df2 = new DecimalFormat(".##"); //Formata o Double com apenas 2 casas decimais depois da virgula
+		String diagnostico = null;
+		double resultadoIMC = calcularIMC();
+		
 
-		if (imc < 16) {
+		if (resultadoIMC < 16) {
 
-			System.out.println("Baixo peso muito grave ");
+			diagnostico = "Baixo peso muito grave ";
 
-		} else if (imc >= 16 && imc <= 16.99) {
+		} else if (resultadoIMC >= 16 && resultadoIMC <= 16.99) {
 
-			System.out.println("Baixo peso grave");
+			diagnostico = "Baixo peso grave";
 
-		} else if (imc >= 17 && imc <= 18.49) {
+		} else if (resultadoIMC >= 17 && resultadoIMC <= 18.49) {
 
-			System.out.println("Baixo peso");
+			diagnostico = "Baixo peso";
 
-		} else if (imc >= 18.50 && imc <= 24.99) {
+		} else if (calcularIMC() >= 18.50 && calcularIMC() <= 24.99) {
 
-			System.out.println("Peso normal");
+			diagnostico = "Peso normal";
 
-		} else if (imc >= 25 && imc <= 29.99) {
+		} else if (calcularIMC() >= 25 && calcularIMC() <= 29.99) {
 
-			System.out.println("Sobrepeso");
+			diagnostico = "Sobrepeso";
 
-		} else if (imc >= 30 && imc <= 34.99) {
+		} else if (calcularIMC() >= 30 && calcularIMC() <= 34.99) {
 
-			System.out.println("Obesidade grau I");
+			diagnostico = "Obesidade grau I";
 
-		} else if (imc >= 35 && imc <= 39.99) {
+		} else if (calcularIMC() >= 35 && calcularIMC() <= 39.99) {
 
-			System.out.println("Obesidade grau II");
+			diagnostico = "Obesidade grau II";
 
-		} else if (imc >= 40) {
+		} else if (calcularIMC() >= 40) {
 
-			System.out.println("Obesidade grau III");
+			diagnostico = "Obesidade grau III";
 		}
+		System.out.println("Seu IMC é: " + df2.format(calcularIMC())+ " seu diagnostico é: " + diagnostico);
+		return diagnostico;
 	}
 
 	/*
